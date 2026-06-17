@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gagan | Software Engineer Portfolio</title>
+
+<style>
+:root{
+  --bg1:#05060a;
+  --bg2:#0a0a1f;
+  --neon:#00fff7;
+  --pink:#ff2bd6;
+  --purple:#8a2be2;
+  --text:#e5e7eb;
+}
+
+/* ===== GLOBAL ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+  color:var(--text);
+  background: linear-gradient(-45deg,#05060a,#0a0a1f,#120a2a,#05060a);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* PARTICLES */
+canvas#bg{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+  opacity:0.6;
+}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 24px;
+  background:rgba(10,10,18,0.35);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(0,255,247,0.2);
+  z-index:1000;
+}
+
+nav b{
+  color:var(--neon);
+  text-shadow:0 0 10px var(--neon);
+}
+
+nav a{
+  color:var(--text);
+  margin:0 10px;
+  text-decoration:none;
+  font-size:14px;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:2px;
+  background:var(--neon);
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:var(--neon);
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3.6rem;
+  background: linear-gradient(90deg,var(--neon),var(--pink),var(--purple));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 20px rgba(0,255,247,0.2);
+}
+
+.hero p{
+  margin-top:12px;
+  color:#bbb;
+  font-size:1.1rem;
+}
+
+.btn{
+  margin-top:22px;
+  padding:12px 22px;
+  border:none;
+  border-radius:8px;
+  background: linear-gradient(90deg,var(--neon),var(--pink));
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 0 20px rgba(0,255,247,0.3);
+}
+
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px rgba(255,43,214,0.4);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:90px 10%;
+}
+
+.title{
+  font-size:2rem;
+  margin-bottom:20px;
+  color:var(--pink);
+  text-shadow:0 0 10px rgba(255,43,214,0.4);
+}
+
+/* ===== CARDS ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(0,255,247,0.2);
+  padding:18px;
+  border-radius:14px;
+  backdrop-filter:blur(12px);
+  transition:0.3s;
+  box-shadow:0 0 15px rgba(0,255,247,0.05);
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:var(--pink);
+  box-shadow:0 0 25px rgba(255,43,214,0.25);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:25px;
+  border-top:1px solid rgba(0,255,247,0.2);
+  color:#888;
+  background:rgba(0,0,0,0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div><b>Gagan.dev</b></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>GAGAN NARIKADAMALLI</h1>
+  <p>Software Engineer • Cybersecurity • Full Stack Developer</p>
+  <button class="btn" onclick="scrollToSection('about')">ENTER PORTFOLIO</button>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="title">ABOUT</div>
+  <div class="card">
+    Software Engineering student at Iowa State University specializing in cybersecurity,
+    full-stack development, and secure system design. Passionate about building scalable,
+    modern, and secure applications.
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="title">EDUCATION</div>
+  <div class="card">
+    <b>Iowa State University</b><br><br>
+    B.S. Software Engineering<br>
+    Minor in Cybersecurity<br><br>
+    GPA: 3.43 / 4.00<br>
+    Expected Graduation: May 2027
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="title">TECHNICAL SKILLS</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <b>Programming</b><br>
+      Java, Python, JavaScript, SQL, C
+    </div>
+
+    <div class="card">
+      <b>Web Development</b><br>
+      HTML, CSS, React, Node.js, REST APIs
+    </div>
+
+    <div class="card">
+      <b>Databases</b><br>
+      MongoDB, SQL, Cloud Databases
+    </div>
+
+    <div class="card">
+      <b>Tools</b><br>
+      Git, GitHub, VS Code, Figma
+    </div>
+
+    <div class="card">
+      <b>Cloud & Automation</b><br>
+      AWS Basics, n8n, Workflow Automation
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="title">EXPERIENCE</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <b>IT Support Technician</b><br>
+      Iowa State University (Mar 2025 – Present)
+      <ul>
+        <li>Technical support for hardware, software, and networking issues.</li>
+        <li>Resolved system issues and improved user experience.</li>
+        <li>Implemented security best practices.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <b>Communication Assistant</b><br>
+      Iowa State University (Aug 2024 – Feb 2026)
+      <ul>
+        <li>Supported communication platforms and digital services.</li>
+        <li>Assisted users with technical troubleshooting.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <b>Student Assistant</b><br>
+      INTI International University
+      <ul>
+        <li>Managed records and administrative data.</li>
+        <li>Ensured accuracy in documentation systems.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="title">PROJECTS</div>
+
+  <div class="grid">
+
+    <div class="card">
+      <b>Iowans For Adoption Website</b>
+      <p>Nonprofit Wix Studio website for adoption awareness and engagement.</p>
+    </div>
+
+    <div class="card">
+      <b>NovaCart Web Platform</b>
+      <p>Full-stack e-commerce system using REST APIs and modern UI design.</p>
+    </div>
+
+    <div class="card">
+      <b>Food Sharing Application</b>
+      <p>Recipe and food sharing platform with optimized search functionality.</p>
+    </div>
+
+    <div class="card">
+      <b>Congkak Game (Java)</b>
+      <p>Object-oriented game with structured logic and debugging systems.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="title">AWARDS</div>
+
+  <div class="card">
+    <b>ISU Innovation Prize – Global Impact Award (1st Place)</b><br><br>
+    Recognized for innovative technology-driven solution addressing real-world challenges.
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="title">CONTACT</div>
+
+  <div class="card">
+    Phone: 515-203-0588<br>
+    Email: b24g23@iastate.edu<br>
+    LinkedIn: linkedin.com/in/n-gagan
+  </div>
+</section>
+
+<footer>
+  © 2026 Gagan Narikadamalli — Cybersecurity & Software Engineering Portfolio
+</footer>
+
+<script>
+
+/* smooth scroll */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* particles */
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<90;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2,
+    dx:(Math.random()-0.5)*0.5,
+    dy:(Math.random()-0.5)*0.5
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00fff7";
+
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+
+    p.x+=p.dx;
+    p.y+=p.dy;
+
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+</script>
+
+</body>
+</html>
